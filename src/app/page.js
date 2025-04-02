@@ -8,7 +8,7 @@ import NavBar from "./components/nav-bar";
 
 export default function Home() {
   return (
-    <div style={{ backgroundColor: "White" }}>
+    <div style={{ backgroundColor: "White", minHeight: "100vh" }} >
       <NavBar />
       <header className={styles.heroSection}>
         <div className="container text-center text-white">
