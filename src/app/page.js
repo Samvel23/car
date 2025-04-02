@@ -25,11 +25,11 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="container my-5">
+      <section className="container my-5" style={{ backgroundColor: "White"}}>
         <h2 className="text-center mb-4">Featured Products</h2>
         <div className="row">
           {[1, 2, 3, 4].map((product, index) => (
-            <div key={index} className="col-md-3">
+            <div key={index} className="col-md-3" style={{ marginBottom: "20px" }}>
               <div className={styles.productCard}>
                 <FaCar className={styles.productIcon} />
                 <img src={`/images/product${index + 1}.jpg`} alt="Product" className="img-fluid" />
