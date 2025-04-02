@@ -1,95 +1,48 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useEffect } from "react";
+import { FaShoppingCart, FaCar, FaTools, FaStar } from "react-icons/fa";
+import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./styles/Home.module.css";
+import NavBar from "./components/nav-bar";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  useEffect(() => {
+    document.body.classList.add(styles.fadeIn);
+    return () => document.body.classList.remove(styles.fadeIn);
+  }, []);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
+  return (
+    <>
+      <NavBar />
+      <header className={styles.heroSection}>
+        <div className="container text-center text-white">
+          <h1 className={styles.heroTitle}>Find the Best Car Parts Here!</h1>
+          <p className={styles.heroSubtitle}>Quality and reliability for your ride.</p>
+          <a href="#" className="btn btn-dark btn-lg mt-3">
+            <FaShoppingCart className="me-2" /> Shop Now
           </a>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </header>
+
+      <section className="container my-5">
+        <h2 className="text-center mb-4">Featured Products</h2>
+        <div className="row">
+          {[1, 2, 3, 4].map((product, index) => (
+            <div key={index} className="col-md-3">
+              <div className={styles.productCard}>
+                <FaCar className={styles.productIcon} />
+                <img src={`/images/product${index + 1}.jpg`} alt="Product" className="img-fluid" />
+                <h5 className="mt-3">Car Part {index + 1}</h5>
+                <p className="text-muted">High-quality replacement part</p>
+                <button className="btn btn-success">
+                  <FaTools className="me-2" /> Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,6 +1,25 @@
+/* Custom Color Palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --light-green: #b0e57c;
+  --grey: #333;
+}
+
+/* Override Bootstrap's Default Variables */
+.btn-primary {
+  background-color: var(--light-green);
+  border-color: var(--light-green);
+}
+
+.text-custom {
+  color: var(--grey);
+}
+
+.bg-custom {
+  background-color: var(--light-green);
+}
+
+.card-custom {
+  border-color: var(--grey);
 }
 
 @media (prefers-color-scheme: dark) {
