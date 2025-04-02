@@ -8,7 +8,7 @@ import NavBar from "./components/nav-bar";
 
 export default function Home() {
   return (
-    <>
+    <div style={{ backgroundColor: "White" }}>
       <NavBar />
       <header className={styles.heroSection}>
         <div className="container text-center text-white">
@@ -23,7 +23,9 @@ export default function Home() {
       </header>
 
       <section className="container my-5" style={{ backgroundColor: "White" }}>
-        <h2 className="text-center mb-4">Featured Products</h2>
+        <h2 style={{ color: "black" }} className="text-center mb-4">
+          Featured Products
+        </h2>
         <div className="row">
           {[1, 2, 3, 4].map((product, index) => (
             <div
@@ -40,7 +42,7 @@ export default function Home() {
                   width={300}
                   height={300}
                 />
-                <h5 className="mt-3">Car Part {index + 1}</h5>
+                <h5 className="mt-3" style={{ color: "black" }}>Car Part {index + 1}</h5>
                 <p className="text-muted">High-quality replacement part</p>
                 <button className="btn btn-success">
                   <FaTools className="me-2" /> Add to Cart
@@ -50,7 +52,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
-
