@@ -8,8 +8,9 @@ import NavBar from "./components/nav-bar";
 
 export default function Home() {
   useEffect(() => {
-    document.body.classList.add(styles.fadeIn);
-    return () => document.body.classList.remove(styles.fadeIn);
+    const root = document.documentElement;
+    root.classList.add(styles.fadeIn);
+    return () => root.classList.remove(styles.fadeIn);
   }, []);
 
   return (
