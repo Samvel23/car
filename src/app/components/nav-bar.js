@@ -1,8 +1,8 @@
+"use client";
+
 import { useEffect } from "react";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min"; // Import Bootstrap JS
-import styles from "../styles/NavBar.module.css";
 
 export default function NavBar() {
   useEffect(() => {
@@ -10,10 +10,10 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
+    <nav style={{ backgroundColor: "#b0e57c" }} className="navbar navbar-expand-lg">
       <div className="container">
-        <Link className={`navbar-brand fw-bold ${styles.brand}`} href="#">
-          🚗 Car Parts Store
+        <Link className="navbar-brand" href="#">
+          Car Parts Store
         </Link>
         <button
           className="navbar-toggler"
@@ -25,35 +25,23 @@ export default function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className={`nav-item ${styles.navItem}`}>
-              <Link
-                className={`nav-link fw-semibold ${styles.navLink}`}
-                href="#"
-              >
+            <li className="nav-item">
+              <Link className="nav-link" href="#">
                 Home
               </Link>
             </li>
-            <li className={`nav-item ${styles.navItem}`}>
-              <Link
-                className={`nav-link fw-semibold ${styles.navLink}`}
-                href="#"
-              >
+            <li className="nav-item">
+              <Link className="nav-link" href="#">
                 Shop
               </Link>
             </li>
-            <li className={`nav-item ${styles.navItem}`}>
-              <Link
-                className={`nav-link fw-semibold ${styles.navLink}`}
-                href="#"
-              >
+            <li className="nav-item">
+              <Link className="nav-link" href="#">
                 About
               </Link>
             </li>
-            <li className={`nav-item ${styles.navItem}`}>
-              <Link
-                className={`nav-link fw-semibold ${styles.navLink}`}
-                href="#"
-              >
+            <li className="nav-item">
+              <Link className="nav-link" href="#">
                 Contact
               </Link>
             </li>
@@ -63,3 +51,4 @@ export default function NavBar() {
     </nav>
   );
 }
+
