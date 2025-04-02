@@ -26,14 +26,17 @@ export default function Home() {
         <h2 style={{ color: "black" }} className="text-center mb-4">
           Featured Products
         </h2>
-        <div className="row">
+        <div className="row" style={{ backgroundColor: "White" }}>
           {[1, 2, 3, 4].map((product, index) => (
             <div
               key={index}
               className="col-md-3"
               style={{ marginBottom: "20px" }}
             >
-              <div className={styles.productCard}>
+              <div
+                className={styles.productCard}
+                style={{ backgroundColor: "White" }}
+              >
                 <FaCar className={styles.productIcon} />
                 <Image
                   src={`/images/product${index + 1}.jpg`}
@@ -42,7 +45,9 @@ export default function Home() {
                   width={300}
                   height={300}
                 />
-                <h5 className="mt-3" style={{ color: "black" }}>Car Part {index + 1}</h5>
+                <h5 className="mt-3" style={{ color: "black" }}>
+                  Car Part {index + 1}
+                </h5>
                 <p className="text-muted">High-quality replacement part</p>
                 <button className="btn btn-success">
                   <FaTools className="me-2" /> Add to Cart
