@@ -1,3 +1,95 @@
+.navbar {
+  background-color: #b0e57c;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.brand:hover {
+  color: #28a745;
+  transform: scale(1.02);
+}
+
+.navLink {
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #28a745;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navItem {
+  margin: 0.5rem 0;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.languageSwitch {
+  margin: 0.5rem 0;
+  margin-left: 10px;
+
+}
+
+.languageBtn {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.languageBtn:hover,
+.languageBtn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navItem {
+    margin: 0.25rem 0;
+  }
+
+  .languageSwitch {
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -7,35 +99,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.navbar {
-  background-color: #b0e57c;
-  transition: background-color 0.3s ease-in-out;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.brand {
-  color: #333;
-  font-size: 1.5rem;
-  transition: color 0.3s ease-in-out;
-}
-
-.navLink {
-  color: #333;
-  transition: color 0.3s ease-in-out;
-  position: relative;
-}
-
-.navLink:hover {
-  color: #555;
-}
-
-.navItem {
-  animation: fadeIn 0.6s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-}
-
-.navItem:hover {
-  transform: scale(1.05);
 }

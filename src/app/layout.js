@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS globally
 
 import "./globals.css";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,15 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Car Parts",
-  description: "Car Parts Shop",
+  title: "NTP Auto Parts",
+  description: "High quality car parts at unbeatable prices",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

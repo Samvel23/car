@@ -1,54 +1,102 @@
-"use client";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "../context/LanguageContext";
+import styles from "../styles/NavBar.module.css";
 
 export default function NavBar() {
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.bundle.min"); // Dynamically import Bootstrap JS
-  }, []);
+  const { lang, setLang } = useLanguage();
+  const path = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
+  const navLinks = [
+    { path: "/", label: lang === "eng" ? "Home" : lang === "ru" ? "Главная" : "Գլխավոր" },
+    { path: "/shop", label: lang === "eng" ? "Shop" : lang === "ru" ? "Магазин" : "Խանութ" },
+    { path: "/about", label: lang === "eng" ? "About" : lang === "ru" ? "О нас" : "Մեր մասին" },
+    { path: "/contact", label: lang === "eng" ? "Contact" : lang === "ru" ? "Контакты" : "Կոնտակտներ" },
+  ];
+
+  const languages = [
+    { code: "eng", label: "ENG" },
+    { code: "ru", label: "RU" },
+    { code: "arm", label: "ARM" },
+  ];
+
+  const handleToggle = () => setIsOpen(!isOpen);
 
   return (
-    <nav style={{ backgroundColor: "#b0e57c" }} className="navbar navbar-expand-lg">
+    <nav className={`${styles.navbar} navbar navbar-expand-lg`}>
       <div className="container">
-        <Link className="navbar-brand" href="#">
-          Car Parts Store
+        <Link className={`${styles.brand} navbar-brand`} href="/">
+          NTP Auto Parts
         </Link>
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          onClick={handleToggle}
+          aria-controls="navbarNav"
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                Shop
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                Contact
-              </Link>
-            </li>
+
+        <div
+          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
+          id="navbarNav"
+        >
+          <ul className="navbar-nav ms-auto align-items-lg-center">
+            {navLinks.map((link) => (
+              <li key={link.path} className={`${styles.navItem} nav-item`}>
+                <Link
+                  className={`${styles.navLink} nav-link`}
+                  href={link.path}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
+          <div className={`${styles.languageSwitch} d-flex gap-2`}>
+            <button
+              className={`${styles.languageBtn} btn btn-sm ${
+                lang === "eng" ? "btn-success" : "btn-outline-dark"
+              }`}
+              onClick={() => {
+                setLang("eng");
+                setIsOpen(false);
+              }}
+            >
+              ENG
+            </button>
+            <button
+              className={`${styles.languageBtn} btn btn-sm ${
+                lang === "ru" ? "btn-success" : "btn-outline-dark"
+              }`}
+              onClick={() => {
+                setLang("ru");
+                setIsOpen(false);
+              }}
+            >
+              RU
+            </button>
+            <button
+              className={`${styles.languageBtn} btn btn-sm ${
+                lang === "arm" ? "btn-success" : "btn-outline-dark"
+              }`}
+              onClick={() => {
+                setLang("arm");
+                setIsOpen(false);
+              }}
+            >
+              ARM
+            </button>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
-

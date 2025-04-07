@@ -1,0 +1,95 @@
+.shopContainer {
+  background-color: #b0e57c; /* Green background for entire container */
+  min-height: 100vh;
+  padding: 60px 20px 40px;
+}
+
+.productCard {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background-color: #e6f3e6; /* Matching green background */
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.imageWrapper {
+  height: 200px; /* Reduced height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #f8f8f8;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures cleaner image display */
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05); /* Slightly reduced scale for cleaner look */
+}
+
+.cardBody {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.contactButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  background-color: var(--grey);
+  color: white;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.contactButton:hover {
+  background-color: darkgreen;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .shopContainer {
+    padding: 40px 15px 20px;
+  }
+
+  .imageWrapper {
+    height: 150px; /* Even smaller for mobile */
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+}
