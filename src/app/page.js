@@ -96,11 +96,18 @@ export default function Home() {
           </h1>
           <p className={styles.heroSubtitle}>
             {lang === "eng"
-              ? "Quality and reliability for your ride."
+              ? "We provide fast and secure delivery to all countries in the Commonwealth of Independent States (CIS)."
               : lang === "ru"
-              ? "Качество и надежность для вашего автомобиля."
-              : "Որակ և հուսալիություն ձեր ճանապարհորդության համար!"}
+              ? "Мы осуществляем быструю и безопасную доставку во все страны СНГ."
+              : "Մենք ապահովում ենք արագ և ապահով առաքում ԱՊՀ բոլոր երկրներ։"}
           </p>
+          <h3 className={styles.heroSubtitle}>
+            {lang === "eng"
+              ? "Delivery Across CIS"
+              : lang === "ru"
+              ? "Доставка по всему СНГ"
+              : "Առաքում ամբողջ ԱՊՀ տարածքում"}
+          </h3>
           <div className={styles.carLogoRow}>
             {carBrands.map((brand, index) => {
               const imageName =
