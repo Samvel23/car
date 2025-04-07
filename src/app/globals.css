@@ -1,4 +1,7 @@
 /* Custom Color Palette */
+* {
+  font-weight: bold;
+}
 :root {
   --light-green: #b0e57c;
   --grey: #333;

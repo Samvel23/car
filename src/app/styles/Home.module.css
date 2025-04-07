@@ -1,3 +1,11 @@
+/* Ensure the entire page has the background color */
+.pageWrapper {
+  background-color: #b0e57c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -15,38 +23,58 @@
 
 /* Hero Section */
 .heroSection {
-  padding: 100px 0;
+  padding: 6rem 0;
   text-align: center;
-  background-color: #b0e57c;
+  background-color: #2d472c;
 }
 
 .heroTitle {
-  font-size: 1.95rem;
+  font-size: clamp(1.5rem, 4vw, 1.95rem);
   font-weight: bold;
-  color: #333;
+  color: #fff;
   animation: fadeIn 1s ease-in-out;
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-top: 10px;
-  color: #333;
+  color: #fff;
   animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Car Logos */
+.carLogoRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.carLogo {
+  width: clamp(40px, 10vw, 63px);
+  height: clamp(40px, 10vw, 63px);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.carLogo:hover {
+  transform: scale(1.1);
 }
 
 /* Product Cards */
 .productCard {
   background: white;
   border-radius: 12px;
-  padding: 20px;
+  padding: 1.25rem;
   text-align: center;
   border: 2px solid #b0e57c;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 420px; /* Ensures uniform height */
-  width: 100%;
+  height: 100%;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -55,114 +83,79 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Product Image Wrapper */
-.productImageWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px; /* Ensures all images fit within the same space */
-  width: 100%;
-}
-
-.productImage {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-/* Product Icon */
 .productIcon {
   font-size: 2.5rem;
   color: #b0e57c;
   margin-bottom: 10px;
 }
 
-/* Product Text */
-.productTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 10px;
-  color: #333;
+.productImage {
+  max-height: 200px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
-.productPrice {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #666;
-}
-
-/* Button */
-.productButton {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.productButton:hover {
-  background-color: #218838;
-}
+/* Video Section */
 .videoContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 1.5rem;
 }
 
 .videoPlayer {
   width: 100%;
-  max-width: 720px;
-  height: auto;
+  max-width: 800px;
   border-radius: 12px;
   border: 2px solid #b0e57c;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .thumbnailContainer {
-  margin-top: 15px;
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5rem;
   justify-content: center;
 }
 
 .thumbnailButton {
-  padding: 8px 16px;
-  border: 2px solid #28a745;
-  border-radius: 8px;
-  background-color: white;
-  color: #28a745;
-  font-weight: bold;
-  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   transition: all 0.3s ease;
 }
 
-.thumbnailButton:hover,
-.activeThumb {
-  background-color: #28a745;
-  color: white;
-}
-.carLogoRow {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 25px;
-  flex-wrap: wrap;
+/* Media Queries */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 4rem 0;
+  }
+
+  .carLogoRow {
+    gap: 0.75rem;
+  }
+
+  .productCard {
+    padding: 1rem;
+  }
+
+  .videoPlayer {
+    max-width: 100%;
+  }
 }
 
-.carLogo {
-  font-size: 2.8rem;
-  color: #333;
-  transition: transform 0.3s ease-in-out, color 0.3s;
-}
+@media (max-width: 576px) {
+  .heroSection {
+    padding: 3rem 0;
+  }
 
-.carLogo:hover {
-  transform: scale(1.15);
-  color: #28a745;
+  .carLogo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thumbnailButton {
+    width: 100%;
+    max-width: 150px;
+  }
 }

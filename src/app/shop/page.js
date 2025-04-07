@@ -17,7 +17,7 @@ import plugs from "../images/plugs.png";
 import hood from "../images/hood.png";
 import wiping from "../images/wiping.png";
 import { useLanguage } from "../context/LanguageContext";
-
+import wheel from "../images/wheel.png";
 export default function Shop() {
   const { lang } = useLanguage();
   const products = [
@@ -93,6 +93,16 @@ export default function Shop() {
           : "Ապակու մաքրիչի շեղբեր",
       image: wiping,
     },
+    {
+      id: 9,
+      name:
+        lang === "eng"
+          ? "Car Wheel"
+          : lang === "ru"
+          ? "Колесо автомобиля"
+          : "Ավտոմեքենայի անիվ",
+      image: wheel,
+    },
   ];
   return (
     <>
@@ -122,7 +132,12 @@ export default function Shop() {
                 <div className={styles.cardBody}>
                   <h5 className={styles.cardTitle}>{product.name}</h5>
                   <Link href="/contact" className={styles.contactButton}>
-                    <FaPhone /> {lang === "eng" ? "Contact Us" : lang === "ru" ? "Свяжитесь с нами" : "Կապնվեք մեզ հետ"}
+                    <FaPhone />{" "}
+                    {lang === "eng"
+                      ? "Contact Us"
+                      : lang === "ru"
+                      ? "Свяжитесь с нами"
+                      : "Կապնվեք մեզ հետ"}
                   </Link>
                 </div>
               </div>

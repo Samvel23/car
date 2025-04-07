@@ -44,16 +44,18 @@ export default function NavBar() {
         <Link className={`${styles.brand} navbar-brand`} href="/">
           NTP Auto Parts
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={handleToggle}
-          aria-controls="navbarNav"
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="d-flex align-items-center gap-3">
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={handleToggle}
+            aria-controls="navbarNav"
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
 
         <div
           className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
@@ -106,16 +108,6 @@ export default function NavBar() {
             >
               ARM
             </button>
-            <div className={styles.whatsappWrapper}>
-              <a
-                href="https://wa.me/971544783056" // replace with your number
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.whatsappLink}
-              >
-                <FaWhatsapp />
-              </a>
-            </div>
           </div>
         </div>
       </div>

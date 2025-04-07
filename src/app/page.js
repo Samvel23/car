@@ -3,20 +3,36 @@
 import { useState } from "react";
 import { FaShoppingCart, FaCar, FaTools } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Image from "next/image";
 import styles from "./styles/Home.module.css";
 import NavBar from "./components/nav-bar";
 import pads from "./images/pads.png";
 import light from "./images/light.png";
 import wiping from "./images/wiping.png";
 import air from "./images/air1.png";
-import Link from "next/link";
 import { useLanguage } from "./context/LanguageContext";
-import { SiAudi, SiBmw, SiFord, SiMercedes, SiToyota } from "react-icons/si";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const { lang } = useLanguage();
   const [currentVideo, setCurrentVideo] = useState(0);
+
+  const carBrands = [
+    { name: "Toyota", domain: "toyota.com" },
+    { name: "BMW", domain: null },
+    { name: "Mercedes-Benz", domain: "mercedes-benz.com" },
+    { name: "Nissan", domain: "nissan-global.com" },
+    { name: "Audi", domain: "audi.com" },
+    { name: "Honda", domain: null },
+    { name: "Kia", domain: "kia.com" },
+    { name: "Hyundai", domain: "hyundai.com" },
+    { name: "Mazda", domain: "mazda.com" },
+    { name: "Volkswagen", domain: "volkswagen.com" },
+    { name: "Renault", domain: "renaultgroup.com" },
+    { name: "Peugeot", domain: "peugeot.com" },
+    { name: "Fiat", domain: "fiat.com" },
+    { name: "Land Rover", domain: "landrover.com" },
+  ];
 
   const products = [
     {
@@ -67,7 +83,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ backgroundColor: "White", minHeight: "100vh" }}>
+    <div className={styles.pageWrapper}>
       <NavBar />
       <header className={styles.heroSection}>
         <div className="container text-center text-white">
@@ -85,23 +101,26 @@ export default function Home() {
               ? "Качество и надежность для вашего автомобиля."
               : "Որակ և հուսալիություն ձեր ճանապարհորդության համար!"}
           </p>
-
-          {/* Car Logos */}
           <div className={styles.carLogoRow}>
-            <SiToyota className={styles.carLogo} />
-            <SiBmw className={styles.carLogo} />
-            <SiMercedes className={styles.carLogo} />
-            <SiAudi className={styles.carLogo} />
-            <SiFord className={styles.carLogo} />
+            {carBrands.map((brand, index) => {
+              const imageName =
+                brand.name.toLowerCase().replace(/\s+/g, "") + ".png";
+              return (
+                <img
+                  key={index}
+                  src={`/images/${imageName}`}
+                  alt={brand.name}
+                  width={63}
+                  height={63}
+                  className={styles.carLogo}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.style.display = "none";
+                  }}
+                />
+              );
+            })}
           </div>
-          <a href="/shop" className="btn btn-dark btn-lg mt-3">
-            <FaShoppingCart className="me-2" />{" "}
-            {lang === "eng"
-              ? "Shop Now"
-              : lang === "ru"
-              ? "Купить сейчас"
-              : "Գնեք հիմա"}
-          </a>
         </div>
       </header>
 
@@ -113,16 +132,17 @@ export default function Home() {
             ? "Рекомендуемые продукты"
             : "Առաջարկվող ապրանքներ"}
         </h2>
-        <div className="row">
-          {products.map((product, index) => (
-            <div key={index} className="col-md-3 mb-4">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          {products.map((product) => (
+            <div key={product.id} className="col">
               <div className={styles.productCard}>
                 <FaCar className={styles.productIcon} />
                 <Image
                   src={product.image}
-                  alt="Product"
+                  alt={product.name}
                   width={300}
                   height={300}
+                  className={styles.productImage}
                 />
                 <h5 className="mt-3">{product.name}</h5>
                 <p className="text-muted">
@@ -146,7 +166,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🎥 VIDEO SECTION */}
       <section className="container my-5 text-center">
         <h2 className="mb-4">
           {lang === "eng"
@@ -155,7 +174,7 @@ export default function Home() {
             ? "Посмотрите наши видео"
             : "Դիտեք մեր տեսանյութերը"}
         </h2>
-        <div>
+        <div className={styles.videoContainer}>
           <video
             key={currentVideo}
             width="100%"
@@ -165,32 +184,30 @@ export default function Home() {
             autoPlay
             loop
             controlsList="nodownload nofullscreen noremoteplayback"
-            style={{
-              borderRadius: "12px",
-              maxWidth: "800px",
-              pointerEvents: "none",
-            }}
+            className={styles.videoPlayer}
           >
             <source src={videoSources[currentVideo]} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        </div>
-        <div className="d-flex justify-content-center mt-3 flex-wrap gap-2">
-          {videoSources.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentVideo(index)}
-              className={`btn ${
-                currentVideo === index ? "btn-success" : "btn-outline-secondary"
-              }`}
-            >
-              {lang === "eng"
-                ? `Video ${index + 1}`
-                : lang === "ru"
-                ? `Видео ${index + 1}`
-                : `Տեսանյութ ${index + 1}`}
-            </button>
-          ))}
+          <div className={styles.thumbnailContainer}>
+            {videoSources.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideo(index)}
+                className={`btn ${
+                  currentVideo === index
+                    ? "btn-success activeThumb"
+                    : "btn-outline-secondary"
+                } ${styles.thumbnailButton}`}
+              >
+                {lang === "eng"
+                  ? `Video ${index + 1}`
+                  : lang === "ru"
+                  ? `Видео ${index + 1}`
+                  : `Տեսանյութ ${index + 1}`}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
     </div>
