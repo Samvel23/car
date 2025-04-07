@@ -59,7 +59,8 @@
 .languageSwitch {
   margin: 0.5rem 0;
   margin-left: 10px;
-
+  display: flex;
+  align-items: center;
 }
 
 .languageBtn {
@@ -67,6 +68,7 @@
   border-radius: 8px;
   padding: 0.4rem 1rem;
   transition: all 0.3s ease;
+  height: 2.5rem;
 }
 
 .languageBtn:hover,
@@ -99,4 +101,28 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.whatsappWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.whatsappLink {
+  font-size: 2.2rem;
+  color: #fff;
+  background-color: #25d366;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsappLink:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  color: #fff;
 }

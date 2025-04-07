@@ -15,7 +15,6 @@
 
 /* Hero Section */
 .heroSection {
-  background: url("/images/hero.jpg") center/cover no-repeat;
   padding: 100px 0;
   text-align: center;
   background-color: #b0e57c;
@@ -108,4 +107,62 @@
 
 .productButton:hover {
   background-color: #218838;
+}
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.videoPlayer {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #b0e57c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnailContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.thumbnailButton {
+  padding: 8px 16px;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  background-color: white;
+  color: #28a745;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.thumbnailButton:hover,
+.activeThumb {
+  background-color: #28a745;
+  color: white;
+}
+.carLogoRow {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.carLogo {
+  font-size: 2.8rem;
+  color: #333;
+  transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.carLogo:hover {
+  transform: scale(1.15);
+  color: #28a745;
 }

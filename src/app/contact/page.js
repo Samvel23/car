@@ -59,6 +59,14 @@ export default function Contact() {
               +971 54 478 3056
             </span>
           </p>
+            <p>
+              <FaMapMarkerAlt className={styles.icon} />{" "}
+              <span
+                className={styles.phoneLink}
+              >
+                Al Nadhal El Commercial Tower Sharjah 
+              </span>
+            </p>
           <div className={styles.socialLinks}>
             <a
               href="https://www.instagram.com/ntp_auto_parts/"

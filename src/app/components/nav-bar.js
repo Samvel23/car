@@ -3,19 +3,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "../styles/NavBar.module.css";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function NavBar() {
   const { lang, setLang } = useLanguage();
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-
-
   const navLinks = [
-    { path: "/", label: lang === "eng" ? "Home" : lang === "ru" ? "Главная" : "Գլխավոր" },
-    { path: "/shop", label: lang === "eng" ? "Shop" : lang === "ru" ? "Магазин" : "Խանութ" },
-    { path: "/about", label: lang === "eng" ? "About" : lang === "ru" ? "О нас" : "Մեր մասին" },
-    { path: "/contact", label: lang === "eng" ? "Contact" : lang === "ru" ? "Контакты" : "Կոնտակտներ" },
+    {
+      path: "/",
+      label: lang === "eng" ? "Home" : lang === "ru" ? "Главная" : "Գլխավոր",
+    },
+    {
+      path: "/shop",
+      label: lang === "eng" ? "Shop" : lang === "ru" ? "Магазин" : "Խանութ",
+    },
+    {
+      path: "/about",
+      label: lang === "eng" ? "About" : lang === "ru" ? "О нас" : "Մեր մասին",
+    },
+    {
+      path: "/contact",
+      label:
+        lang === "eng" ? "Contact" : lang === "ru" ? "Контакты" : "Կոնտակտներ",
+    },
   ];
 
   const languages = [
@@ -94,6 +106,16 @@ export default function NavBar() {
             >
               ARM
             </button>
+            <div className={styles.whatsappWrapper}>
+              <a
+                href="https://wa.me/971544783056" // replace with your number
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappLink}
+              >
+                <FaWhatsapp />
+              </a>
+            </div>
           </div>
         </div>
       </div>

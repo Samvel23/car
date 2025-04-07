@@ -5,6 +5,8 @@ import {
   FaTelegram,
   FaEnvelope,
   FaCheckCircle,
+  FaTruck,
+  FaHandshake,
 } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../styles/About.module.css";
@@ -17,7 +19,6 @@ export default function About() {
     <>
       <NavBar />
       <div className={styles.aboutContainer}>
-        {/* Hero Section */}
         <header className={styles.heroSection}>
           <h1 className={styles.heroTitle}>
             {lang === "eng"
@@ -26,12 +27,17 @@ export default function About() {
               ? "О NTP Auto Parts"
               : "NTP Auto Parts-ի մասին"}
           </h1>
+          <p className={styles.heroSubtitle}>
+            {lang === "eng"
+              ? "Reliable parts, trusted service."
+              : lang === "ru"
+              ? "Надежные детали, проверенный сервис."
+              : "Վստահելի պահեստամասեր, փորձարկված ծառայություն։"}
+          </p>
         </header>
 
-        {/* Content Section */}
         <section className={`container ${styles.contentSection}`}>
           <div className="row">
-            {/* Our Story */}
             <div className="col-md-6">
               <h2 className={styles.sectionTitle}>
                 {lang === "eng"
@@ -40,16 +46,15 @@ export default function About() {
                   ? "О нас"
                   : "Մեր մասին"}
               </h2>
-              <p className={`${styles.text} ${styles.cardFadeIn}`}>
+              <p className={styles.text}>
                 {lang === "eng"
-                  ? "With over 10 years of experience, NTP Auto Parts has become a trusted name in the auto parts industry. We are known for reliability and quality. We proudly serve our customers with a wider selection of parts for more products and models than ever before. Whether you are doing a simple repair or a complete rebuild, you can trust NTP Auto Parts to provide quality parts at an affordable price."
+                  ? "With over 10 years of experience, NTP Auto Parts has become a trusted name in the auto parts industry. We offer a wide selection of parts for many car models, ensuring quality and affordability. Whether you're doing a quick fix or a full rebuild, we’ve got the right parts for you."
                   : lang === "ru"
-                  ? "Имея более чем 10-летний опыт работы, компания NTP Auto Parts стала надежным именем в отрасли автозапчастей. Мы известны своей надежностью и качеством. Мы с гордостью предлагаем нашим клиентам более широкий выбор запчастей для большего количества продуктов и моделей, чем когда-либо прежде. Независимо от того, выполняете ли вы простой ремонт или полную переборку, вы можете быть уверены, что NTP Auto Parts предоставит вам качественные детали по доступной цене."
-                  : "Ավելի քան 10 տարվա փորձ ունեցող NTP Auto Parts-ը դարձել է վստահելի անուն ավտոպահեստամասերի արդյունաբերության մեջ: Հայտնի ենք հուսալիությամբ և որակով։ Մենք հպարտությամբ սպասարկում ենք մեր հաճախորդներին՝ ավելի շատ ապրանքների համար մասերի լայն ընտրանիով և մոդելներով, քան երբևէ: Անկախ նրանից, թե դուք անում եք պարզ վերանորոգում կամ ամբողջական վերակառուցում, կարող եք վստահել NTP Auto Parts-ին՝ որակով մաս հարմար գնով։"}
+                  ? "С более чем 10-летним опытом, NTP Auto Parts — это надежное имя в мире автозапчастей. Мы предлагаем широкий выбор деталей для различных моделей автомобилей, гарантируя качество и доступные цены."
+                  : "Ավելի քան 10 տարվա փորձով՝ NTP Auto Parts-ը վստահելի անուն է ավտոպահեստամասերի ոլորտում։ Մենք առաջարկում ենք մասերի լայն ընտրանի տարբեր մեքենաների մոդելների համար՝ ապահովելով որակ և մատչելիություն։"}
               </p>
             </div>
 
-            {/* Why Choose Us */}
             <div className="col-md-6">
               <h2 className={styles.sectionTitle}>
                 {lang === "eng"
@@ -58,7 +63,7 @@ export default function About() {
                   ? "Почему выбрать нас?"
                   : "Ինչու ընտրել մեզ?"}
               </h2>
-              <ul className={`${styles.list} ${styles.cardSlideIn}`}>
+              <ul className={styles.list}>
                 <li>
                   <FaCheckCircle className={styles.checkIcon} />
                   {lang === "eng"
@@ -92,6 +97,45 @@ export default function About() {
                     : "Գերազանց հաճախորդների աջակցություն"}
                 </li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className={`container ${styles.highlightSection}`}>
+          <div className="row align-items-center">
+            <div className="col-md-6 text-center">
+              <FaTruck className={styles.highlightIcon} />
+              <h3 className={styles.highlightTitle}>
+                {lang === "eng"
+                  ? "Delivery Across CIS"
+                  : lang === "ru"
+                  ? "Доставка по всему СНГ"
+                  : "Առաքում ամբողջ ԱՊՀ տարածքում"}
+              </h3>
+              <p className={styles.text}>
+                {lang === "eng"
+                  ? "We provide fast and secure delivery to all countries in the Commonwealth of Independent States (CIS)."
+                  : lang === "ru"
+                  ? "Мы осуществляем быструю и безопасную доставку во все страны СНГ."
+                  : "Մենք ապահովում ենք արագ և ապահով առաքում ԱՊՀ բոլոր երկրներ։"}
+              </p>
+            </div>
+            <div className="col-md-6 text-center">
+              <FaHandshake className={styles.highlightIcon} />
+              <h3 className={styles.highlightTitle}>
+                {lang === "eng"
+                  ? "First-Hand Goods Only"
+                  : lang === "ru"
+                  ? "Только оригинальные товары"
+                  : "Միայն բնօրինակ ապրանքներ"}
+              </h3>
+              <p className={styles.text}>
+                {lang === "eng"
+                  ? "All our parts come directly from verified manufacturers — no middlemen, no compromises."
+                  : lang === "ru"
+                  ? "Все наши запчасти поступают напрямую от проверенных производителей — без посредников и компромиссов."
+                  : "Մեր բոլոր ապրանքները մատակարարվում են անմիջապես վստահելի արտադրողներից՝ առանց միջնորդների։"}
+              </p>
             </div>
           </div>
         </section>
