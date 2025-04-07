@@ -34,6 +34,19 @@ export default function Home() {
     { name: "Land Rover", domain: "landrover.com" },
   ];
 
+  const cisCountries = [
+    { name: "Russia", flag: "🇷🇺" },
+    { name: "Ukraine", flag: "🇺🇦" },
+    { name: "Belarus", flag: "🇧🇾" },
+    { name: "Kazakhstan", flag: "🇰🇿" },
+    { name: "Uzbekistan", flag: "🇺🇿" },
+    { name: "Armenia", flag: "🇦🇲" },
+    { name: "Azerbaijan", flag: "🇦🇿" },
+    { name: "Kyrgyzstan", flag: "🇰🇬" },
+    { name: "Tajikistan", flag: "🇹🇯" },
+    { name: "Moldova", flag: "🇲🇩" },
+  ];
+
   const products = [
     {
       id: 1,
@@ -101,6 +114,14 @@ export default function Home() {
               ? "Мы осуществляем быструю и безопасную доставку во все страны СНГ."
               : "Մենք ապահովում ենք արագ և ապահով առաքում ԱՊՀ բոլոր երկրներ։"}
           </p>
+          <p className={styles.originText}>
+            {lang === "eng"
+              ? "All parts from Dubai and Sharjah"
+              : lang === "ru"
+              ? "Все запчасти из Дубая и Шарджи"
+              : "Բոլոր մասերը Դուբայից և Շարջայից"}{" "}
+            <span className={styles.uaeFlag}>🇦🇪</span>
+          </p>
           <h3 className={styles.heroSubtitle}>
             {lang === "eng"
               ? "Delivery Across CIS"
@@ -108,6 +129,17 @@ export default function Home() {
               ? "Доставка по всему СНГ"
               : "Առաքում ամբողջ ԱՊՀ տարածքում"}
           </h3>
+          <div className={styles.cisFlagRow}>
+            {cisCountries.map((country, index) => (
+              <span
+                key={`cis-${index}`}
+                className={styles.cisFlag}
+                title={country.name}
+              >
+                {country.flag}
+              </span>
+            ))}
+          </div>
           <div className={styles.carLogoRow}>
             {carBrands.map((brand, index) => {
               const imageName =
