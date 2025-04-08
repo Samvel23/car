@@ -3,8 +3,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import styles from "../styles/NavBar.module.css";
-import { FaWhatsapp } from "react-icons/fa";
-
+import logo from "../images/logo.png";
+import Image from "next/image";
 export default function NavBar() {
   const { lang, setLang } = useLanguage();
   const path = usePathname();
@@ -42,7 +42,14 @@ export default function NavBar() {
     <nav className={`${styles.navbar} navbar navbar-expand-lg`}>
       <div className="container">
         <Link className={`${styles.brand} navbar-brand`} href="/">
-          NTP Auto Parts
+          <Image
+            src={logo}
+            alt="NTP Auto Parts Logo"
+            width={225}
+            height={120}
+            className={styles.logo}
+            priority
+          />
         </Link>
         <div className="d-flex align-items-center gap-3">
           <button
