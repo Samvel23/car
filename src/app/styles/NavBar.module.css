@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #b0e57c;
+  background-color: #5c9d74;
   transition: all 0.3s ease-in-out;
   animation: fadeIn 0.5s ease-in-out;
   padding: 1rem 0;
@@ -11,7 +11,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
-  
+
   transform: scale(2);
 }
 
