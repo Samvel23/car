@@ -54,6 +54,7 @@ export default function NavBar() {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
+            <span className="d-lg-none ms-2">Menu</span>
           </button>
         </div>
 
@@ -77,17 +78,6 @@ export default function NavBar() {
           <div className={`${styles.languageSwitch} d-flex gap-2`}>
             <button
               className={`${styles.languageBtn} btn btn-sm ${
-                lang === "eng" ? "btn-success" : "btn-outline-dark"
-              }`}
-              onClick={() => {
-                setLang("eng");
-                setIsOpen(false);
-              }}
-            >
-              ENG
-            </button>
-            <button
-              className={`${styles.languageBtn} btn btn-sm ${
                 lang === "ru" ? "btn-success" : "btn-outline-dark"
               }`}
               onClick={() => {
@@ -96,6 +86,17 @@ export default function NavBar() {
               }}
             >
               RU
+            </button>
+            <button
+              className={`${styles.languageBtn} btn btn-sm ${
+                lang === "eng" ? "btn-success" : "btn-outline-dark"
+              }`}
+              onClick={() => {
+                setLang("eng");
+                setIsOpen(false);
+              }}
+            >
+              ENG
             </button>
             <button
               className={`${styles.languageBtn} btn btn-sm ${
