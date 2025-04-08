@@ -6,7 +6,7 @@ const LanguageContext = createContext();
 
 // Provider Component
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState("eng");
+  const [lang, setLang] = useState("ru");
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>
