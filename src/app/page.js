@@ -41,7 +41,6 @@ export default function Home() {
     { name: "Kazakhstan", flag: "🇰🇿" },
     { name: "Uzbekistan", flag: "🇺🇿" },
     { name: "Armenia", flag: "🇦🇲" },
-    { name: "Azerbaijan", flag: "🇦🇿" },
     { name: "Kyrgyzstan", flag: "🇰🇬" },
     { name: "Tajikistan", flag: "🇹🇯" },
     { name: "Moldova", flag: "🇲🇩" },
@@ -164,7 +163,7 @@ export default function Home() {
       </header>
 
       <section className="container my-5">
-        <h2 className="text-center mb-4">
+        <h2 className="text-center mb-4" style={{ color: "black" }}>
           {lang === "eng"
             ? "Featured Products"
             : lang === "ru"
@@ -183,7 +182,9 @@ export default function Home() {
                   height={300}
                   className={styles.productImage}
                 />
-                <h5 className="mt-3">{product.name}</h5>
+                <h5 className="mt-3" style={{ color: "black" }}>
+                  {product.name}
+                </h5>
                 <p className="text-muted">
                   {lang === "eng"
                     ? "High-quality replacement part"
@@ -206,7 +207,7 @@ export default function Home() {
       </section>
 
       <section className="container my-5 text-center">
-        <h2 className="mb-4">
+        <h2 className="mb-4" style={{ color: "black" }}>
           {lang === "eng"
             ? "Watch Our Videos"
             : lang === "ru"
